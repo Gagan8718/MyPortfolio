@@ -104,24 +104,21 @@ const Experience = () => {
 
   // Experience data
   const experiences = [
+
+    {
+      year: "2024",
+      title: "Software Developer - Aon Digicon",
+      description: "I have been actively involved in developing and maintaining multiple projects using ASP.NET Core, Blazor (WebAssembly and Server), and .NET MAUI. My role includes building user-friendly UIs, integrating with SQL Server via stored procedures, optimizing application performance, and collaborating closely with cross-functional teams to deliver scalable, efficient software solutions tailored to business needs. ",
+      skills: ["C#", "ASP.NetCore", "Blazor", "Maui Blazor"]
+    },
     {
       year: "2023",
       title: "Software Developer - Railword India",
       description: "Developed and maintained web applications using modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality software solutions. Implemented responsive designs and optimized application performance.",
-      skills: ["React", "Node.js", "TypeScript", "GraphQL", "MongoDB"]
-    },
-    {
-      year: "2022",
-      title: "Frontend Engineer - TechSolutions Inc.",
-      description: "Built interactive user interfaces with React and Redux. Worked closely with UX designers to implement pixel-perfect designs. Conducted code reviews and mentored junior developers in best practices.",
-      skills: ["JavaScript", "React", "Redux", "CSS3", "Jest"]
-    },
-    {
-      year: "2021",
-      title: "Web Developer Intern - Digital Creations",
-      description: "Assisted in developing and testing web applications. Learned modern development workflows and tools. Contributed to open-source projects and internal tooling.",
-      skills: ["HTML5", "CSS", "JavaScript", "Git", "Bootstrap"]
+      skills: ["React", "Java", "MySQL"]
     }
+   
+  
   ];
 
   return (
@@ -152,10 +149,10 @@ const Experience = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9] }}
           >
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-5xl font-thin mb-4 text-center">
               Professional
             </span>{' '}
-            <span className="bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-300 to-purple-500 text-transparent font-thin bg-clip-text">
               Journey
             </span>
           </motion.h2>
@@ -197,7 +194,7 @@ const Experience = () => {
                       }}
                     >
                       <motion.h3 
-                        className="text-2xl font-bold mb-3 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+                        className="text-2xl font-bold mb-3 bg-gradient-to-r from-pink-300 to-purple-600 bg-clip-text text-transparent"
                         initial={{ opacity: 0, y: 10 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.2 }}

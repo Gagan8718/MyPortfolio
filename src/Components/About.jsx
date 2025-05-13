@@ -36,7 +36,7 @@ function About() {
     }
   };
 
-  const skillItems = [
+  const skills = [
     { name: "React", level: 90 },
     { name: "Node.js", level: 85 },
     { name: "TypeScript", level: 80 },
@@ -53,13 +53,17 @@ function About() {
         variants={containerVariants}
         className="container mx-auto px-4"
       >
-        <motion.h1 
+        {/* Section Title with horizontal line design similar to hero */}
+        <motion.div 
           variants={itemVariants}
-          className='text-center text-5xl font-thin mb-16'
+          className="flex items-center w-full max-w-3xl mx-auto mb-16 gap-4"
         >
-          About
-          <span className='text-neutral-500 ml-2'>Me</span>
-        </motion.h1>
+          <div className="h-px bg-gradient-to-r from-purple-500 to-transparent flex-grow opacity-50"></div>
+          <h2 className='text-5xl font-thin mb-4 text-center'>
+            About <span className="bg-gradient-to-r from-pink-300 to-purple-500 text-transparent bg-clip-text">Me</span>
+          </h2>
+          <div className="h-px bg-gradient-to-l from-purple-500 to-transparent flex-grow opacity-50"></div>
+        </motion.div>
 
         <div className='flex flex-wrap items-center'>
           {/* Image Column */}
@@ -67,45 +71,63 @@ function About() {
             <div className='flex flex-col items-center px-4 md:px-8'>
               <motion.div
                 variants={itemVariants}
-                className="relative group"
+                className="relative"
               >
-                <motion.div
-                  className="absolute -inset-1 rounded-2xl blur-sm"
-                  animate={{
-                    scale: [1, 1.03, 1],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                />
-                <img 
-                  className='rounded-2xl shadow-xl relative z-10 w-full max-w-md object-cover' 
-                  src={AboutImage} 
-                  alt="Gagan working on code" 
-                />
+                {/* Terminal-like frame for main image */}
+                <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden shadow-xl">
+                  {/* Terminal header */}
+                  <div className="bg-neutral-900 px-4 py-2 flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <div className="ml-2 text-xs text-gray-400 font-mono flex-grow text-center">developer.experience</div>
+                  </div>
+                  
+                  {/* Image container */}
+                  <div className="p-2">
+                    <div className="relative rounded-lg p-1 bg-gradient-to-br from-pink-300 to-purple-500 shadow-lg">
+                      <div className="bg-neutral-950 bg-opacity-80 backdrop-blur-sm rounded-lg overflow-hidden">
+                        <img 
+                          className='w-full object-cover aspect-video' 
+                          src={AboutImage} 
+                          alt="Gagan working on code" 
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Small badge in corner */}
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-neutral-900 rounded-lg shadow-lg flex items-center justify-center border-r-2 border-t-2 border-pink-300">
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-white">2+</div>
+                    <div className="text-xs text-gray-400">Years</div>
+                  </div>
+                </div>
               </motion.div>
               
-              <motion.div 
+              {/* Skills section styled like terminal */}
+              <motion.div
                 variants={itemVariants}
-                className="grid grid-cols-3 gap-4 mt-6"
+                className=" w-full bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden shadow-xl mb-8"
               >
-                <img 
-                  src={AboutImage} 
-                  alt="Working with team" 
-                  className="rounded-lg h-24 object-cover"
-                />
-                <img 
-                  src={AboutImage} 
-                  alt="At a conference" 
-                  className="rounded-lg h-24 object-cover"
-                />
-                <img 
-                  src={AboutImage} 
-                  alt="Coding session" 
-                  className="rounded-lg h-24 object-cover"
-                />
+                <div className="bg-neutral-900 px-4 py-2 flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <div className="ml-2 text-xs text-gray-400 font-mono flex-grow text-center">developer.approach.js</div>
+                </div>
+                
+                <div className="p-6 font-mono text-sm">
+                  <div className="text-pink-300">
+                    <div className="mb-1">const <span className="text-purple-400">myApproach</span> = {'{'}</div>
+                    <div className="ml-4 mb-1"><span className="text-blue-400">cleanCode</span>: true,</div>
+                    <div className="ml-4 mb-1"><span className="text-blue-400">userCentric</span>: true,</div>
+                    <div className="ml-4 mb-1"><span className="text-blue-400">continuous</span>: "learning",</div>
+                    <div className="ml-4 mb-1"><span className="text-blue-400">passion</span>: "problem-solving"</div>
+                    <div className="mb-1">{'}'}</div>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -113,28 +135,63 @@ function About() {
           {/* Content Column */}
           <div className='w-full lg:w-1/2'> 
             <div className='px-4 md:px-8'>
+              {/* Quote styled like in hero */}
+              <motion.div 
+                variants={itemVariants}
+                className="mb-8 relative"
+              >
+                <div className="absolute left-0 top-0 text-4xl text-pink-300 opacity-40 font-serif">"</div>
+                <p className="text-gray-300 italic text-lg pl-6 pr-4 py-1 border-l-2 border-pink-300">
+                  Building digital experiences that blend technology with creativity
+                </p>
+                <div className="absolute right-0 bottom-0 text-4xl text-pink-300 opacity-40 font-serif">"</div>
+              </motion.div>
+              
               <motion.h2 
                 variants={itemVariants}
-                className='text-3xl font-light mb-6 text-center lg:text-left'
+                className='text-2xl lg:text-3xl font-bold mb-6 text-center lg:text-left'
               >
-                My Journey as a Developer
+                My <span className="bg-gradient-to-r from-pink-300 to-purple-500 text-transparent bg-clip-text">Journey</span> as a Developer & Photographer
               </motion.h2>
               
               <motion.p 
                 variants={itemVariants}
                 className='mb-6 text-lg text-neutral-300 leading-relaxed'
               > 
-                With over 5 years of experience in full-stack development, I've built and deployed numerous web applications that combine elegant front-end interfaces with powerful back-end solutions. My journey began with a passion for solving real-world problems through code, and it has evolved into a career focused on creating scalable, maintainable, and user-centric digital experiences.
+                With over 2 years of experience in full-stack development, I've built and deployed numerous web applications that combine elegant front-end interfaces with powerful back-end solutions. My journey began with a passion for solving real-world problems through code.
               </motion.p>
               
               <motion.p 
                 variants={itemVariants}
                 className='mb-8 text-lg text-neutral-300 leading-relaxed'
               > 
-                I specialize in the MERN stack (MongoDB, Express.js, React, Node.js) and have extensive experience with modern technologies like TypeScript, Next.js, and GraphQL. My approach combines technical expertise with an eye for design and user experience, ensuring that the applications I build are not just functional but also intuitive and enjoyable to use.
+              I’m a passionate Software Developer with over 2 years of experience working on technologies like Java, React, React Native, SQL, .NET, Blazor, and MAUI, alongside 3+ years of experience as a photographer and certified drone operator, contributing to government projects with a creative and technical edge.
               </motion.p>
               
-             
+              {/* Terminal-like code snippet */}
+              <motion.div
+                variants={itemVariants}
+                className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden shadow-xl mb-8"
+              >
+                <div className="bg-neutral-900 px-4 py-2 flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <div className="ml-2 text-xs text-gray-400 font-mono flex-grow text-center">developer.approach.js</div>
+                </div>
+                
+                <div className="p-6 font-mono text-sm">
+                  <div className="text-pink-300">
+                    <div className="mb-1">const <span className="text-purple-400">myApproach</span> = {'{'}</div>
+                    <div className="ml-4 mb-1"><span className="text-blue-400">cleanCode</span>: true,</div>
+                    <div className="ml-4 mb-1"><span className="text-blue-400">userCentric</span>: true,</div>
+                    <div className="ml-4 mb-1"><span className="text-blue-400">continuous</span>: "learning",</div>
+                    <div className="ml-4 mb-1"><span className="text-blue-400">passion</span>: "problem-solving"</div>
+                    <div className="mb-1">{'}'}</div>
+                  </div>
+                </div>
+              </motion.div>
+              
             </div>
           </div>
         </div>
