@@ -112,10 +112,10 @@ const Projects = () => {
         className="max-w-7xl mx-auto"
       >
         <h1 className="text-center text-4xl md:text-5xl font-bold mb-20">
-          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <span className="text-5xl font-thin mb-4 text-center">
             My
           </span>{' '}
-          <span className="bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-pink-300 to-purple-500 text-transparent font-thin bg-clip-text">
             Projects
           </span>
         </h1>
@@ -161,7 +161,7 @@ const Projects = () => {
                   variants={contentVariants}
                 >
                   <motion.h3 
-                    className="text-2xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+                    className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-300 to-purple-600 bg-clip-text text-transparent"
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : {}}
                     transition={{ delay: 0.2 }}

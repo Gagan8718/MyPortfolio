@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { RiReactjsLine } from "react-icons/ri";
+import { PiFileCSharp } from "react-icons/pi";
 import { FaJava, FaNodeJs, FaAws, FaPython, FaGithub } from "react-icons/fa";
 import { SiDotnet, SiMysql, SiBlazor, SiJavascript, SiSpring, SiDocker } from "react-icons/si";
 
@@ -16,15 +17,10 @@ const Technologies = () => {
     { icon: FaJava, name: "Java", color: "" },
     { icon: RiReactjsLine, name: "React", color: "cyan-400" },
     { icon: SiDotnet, name: ".NET", color: "cyan-400" },
+    { icon: PiFileCSharp, name: "C Sharp", color: "cyan-400" },
     { icon: SiMysql, name: "MySQL", color: "cyan-400" },
     { icon: SiJavascript, name: "JavaScript", color: "cyan-400" },
     { icon: SiBlazor, name: "Blazor", color: "cyan-400" },
-    { icon: FaNodeJs, name: "Node.js", color: "cyan-400" },
-    { icon: SiSpring, name: "Spring", color: "emerald-400" },
-    { icon: SiDocker, name: "Docker", color: "cyan-400" },
-    { icon: FaAws, name: "AWS", color: "cyan-400" },
-    { icon: FaPython, name: "Python", color: "cyan-400" },
-    { icon: FaGithub, name: "GitHub", color: "cyan-400" }
   ];
 
   const containerVariants = {
@@ -60,7 +56,7 @@ const Technologies = () => {
           variants={itemVariants}
           className='text-5xl font-thin mb-4 text-center'
         >
-          Technologies <span className='text-cyan-400'>I Work With</span>
+          Technologies <span className='bg-gradient-to-r from-pink-300 to-purple-500 text-transparent bg-clip-text '>I Work With</span>
         </motion.h1>
         
         <motion.p 
@@ -86,10 +82,10 @@ const Technologies = () => {
                   y: -10, 
                   transition: { type: "spring", stiffness: 300 } 
                 }}
-                className="w-24 md:w-32 lg:w-40 mb-6"
+                className="w-15 md:w-25 lg:w-40 mb-6"
               >
                 <motion.div 
-                  className="aspect-square rounded-2xl border-4 border-purple-800 p-4 flex items-center justify-center mb-3 relative overflow-hidden group"
+                  className="aspect-square rounded-2xl border-1 border-purple-800 p-4 flex items-center justify-center mb-3 relative overflow-hidden group"
                   whileHover={{
                     boxShadow: "0 0 20px rgba(34, 211, 238, 0.3)",
                     borderColor: "#purple",
@@ -110,7 +106,7 @@ const Technologies = () => {
                       transition: { duration: 0.5 }
                     }}
                   >
-                    <IconComponent className={`text-6xl md:text-7xl text-${tech.color} group-hover:text-fuchsia-700`} />
+                    <IconComponent className={"text-4xl md:text-7xl text-${tech.color} group-hover:text-fuchsia-700"} />
                   </motion.div>
                 </motion.div>
                 
@@ -130,7 +126,7 @@ const Technologies = () => {
         >
           <motion.a
             href="#projects"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full text-white hover:shadow-lg transition duration-300 transform hover:-translate-y-1"
+            className="inline-block px-8 py-3  bg-gradient-to-r from-pink-300 to-purple-500  rounded-full text-white hover:shadow-lg transition duration-300 transform hover:-translate-y-1"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

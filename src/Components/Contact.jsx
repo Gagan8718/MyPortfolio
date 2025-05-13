@@ -40,7 +40,7 @@ const Contact = () => {
         </svg>
       ),
       title: "Address",
-      value: "123 Developer Street, Tech City, IN 10001",
+      value: "Abhanpur Chhattisgarh",
       link: "#"
     },
     {
@@ -50,8 +50,8 @@ const Contact = () => {
         </svg>
       ),
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      value: "000000000000",
+      link: ""
     },
     {
       icon: (
@@ -60,8 +60,8 @@ const Contact = () => {
         </svg>
       ),
       title: "Email",
-      value: "hello@example.com",
-      link: "mailto:hello@example.com"
+      value: "gagansahuji16@gmail.com",
+      link: "mailto:gagansahuji16@gmail.com"
     }
   ];
 
@@ -83,10 +83,10 @@ const Contact = () => {
           className="text-center text-4xl md:text-5xl font-bold mb-16"
           variants={itemVariants}
         >
-          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <span className="text-5xl font-thin mb-4 text-center">
             Get in
           </span>{' '}
-          <span className="bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-pink-300 to-purple-500 text-transparent font-thin bg-clip-text">
             Touch
           </span>
         </motion.h1>
@@ -107,7 +107,7 @@ const Contact = () => {
               <div className="mb-4 p-4 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-600/10 border border-cyan-400/20">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold mb-2 text-cyan-400">{item.title}</h3>
+              <h3 className="text-xl font-bold mb-2 bg-gradient-to-r bg-clip-text from-pink-300 to-purple-500 text-transparent">{item.title}</h3>
               <p className="text-slate-300">{item.value}</p>
             </motion.a>
           ))}
@@ -139,7 +139,7 @@ const Contact = () => {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg shadow-lg hover:shadow-xl hover:shadow-cyan-500/20 transition-all"
+              className="px-8 py-3 bg-gradient-to-r from-pink-300 to-purple-600 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30"
             >
               Send Message
             </motion.button>
