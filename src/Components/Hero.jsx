@@ -70,7 +70,7 @@ const Hero = () => {
             className="flex"
           >
             <a 
-              href="#" 
+              href="#contact" 
               className="px-8 py-3 bg-gradient-to-r from-pink-300 to-purple-500 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30"
             >
               Let's Connect
