@@ -11,9 +11,9 @@ const Navbar = () => {
   ];
 
   const socialIcons = [
-    { icon: <FaLinkedin />, href: "#" },
+    { icon: <FaLinkedin />, href: "https://in.linkedin.com/in/gagan-sahu" },
     { icon: <FaGithub />, href: "#" },
-    { icon: <FaInstagram />, href: "#" }
+    { icon: <FaInstagram />, href: "https://www.instagram.com/mr_g_sahu1/" }
   ];
 
   return (

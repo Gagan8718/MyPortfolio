@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import project1 from "../assets/Project1.jpg";
+import ceat from "../assets/image1.png";
+import split from "../assets/image2.png";
+import ec from "../assets/image.png";
 
 const Projects = () => {
   // Animation variants
@@ -84,21 +87,30 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Ceat Tyre Inspection ",
+      description: "The CEAT Tyre Inspection Project is a mobile and web-based application designed to monitor and evaluate the performance and durability of tyres used in various vehicles. It allows administrators, inspection engineers, and field staff to collaborate seamlessly on tyre fitment, inspections, and performance analysis.",
+      skills: ["Blazor", "Maui Blazor", ".Net", "SQl"],
+      image: ceat
+    },
+    
+    {
       title: "SplitBill App",
       description: "A modern expense splitting application that helps friends and roommates track shared expenses and settle balances. Features include real-time updates, payment tracking, and detailed history.",
-      skills: ["React", "Node.js", "Firebase", "Tailwind CSS", "JWT Auth"],
-      image: project1
+      skills: ["React", "Java", "Mysql", "Tailwind CSS", "JWT Auth"],
+      image: split
     },
-    {
+    
+
+     {
       title: "E-commerce Platform",
       description: "Full-featured online store with product catalog, shopping cart, and secure checkout. Integrated with payment gateways and inventory management system.",
-      skills: ["Next.js", "MongoDB", "Stripe API", "Redux", "AWS S3"],
-      image: project1
+      skills: ["Java", "React", "AWS S3"],
+      image: ec
     },
     {
       title: "Task Management Dashboard",
       description: "Productivity application with kanban boards, time tracking, and team collaboration features. Supports drag-and-drop functionality and real-time notifications.",
-      skills: ["TypeScript", "React DnD", "GraphQL", "Jest", "WebSockets"],
+      skills: ["Java", "Html,Css", "JavaScript", "WebSockets"],
       image: project1
     }
   ];
@@ -152,7 +164,7 @@ const Projects = () => {
                   <img 
                     src={project.image} 
                     alt={project.title} 
-                    className="w-full h-64 object-cover rounded-xl shadow-lg border border-slate-700/50"
+                    className="w-90 h-50 object-fit rounded-xl shadow-lg border border-slate-700/50"
                   />
                 </motion.div>
 
