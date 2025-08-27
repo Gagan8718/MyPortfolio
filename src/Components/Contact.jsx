@@ -1,8 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState('');
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setFormError('Please fill in all fields');
+      return;
+    }
+    
+    // If using JavaScript submission (alternative method)
+    // You can use fetch to submit the form data
+    const form = e.target;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString(),
+    })
+    .then(() => {
+      setFormSubmitted(true);
+      setFormError('');
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch(error => {
+      setFormError('There was an error sending your message. Please try again.');
+    });
+  };
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -118,32 +163,69 @@ const Contact = () => {
           className="mt-16 text-center"
         >
           <h3 className="text-2xl font-bold mb-6 text-slate-200">Or send me a message</h3>
-          <form className="max-w-lg mx-auto space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <input 
-                type="text" 
-                placeholder="Your Name" 
-                className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700/50 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 text-slate-200 placeholder-slate-500 transition-all"
-              />
-              <input 
-                type="email" 
-                placeholder="Your Email" 
-                className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700/50 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 text-slate-200 placeholder-slate-500 transition-all"
-              />
+          
+          {formSubmitted ? (
+            <div className="bg-green-800/30 border border-green-600/50 p-6 rounded-lg">
+              <p className="text-green-300 text-lg">Thank you for your message! I'll get back to you soon.</p>
             </div>
-            <textarea 
-              placeholder="Your Message" 
-              rows="5"
-              className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700/50 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 text-slate-200 placeholder-slate-500 transition-all"
-            ></textarea>
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 py-3 bg-gradient-to-r from-pink-300 to-purple-600 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30"
+          ) : (
+            <form 
+              className="max-w-lg mx-auto space-y-6" 
+              name="contact" 
+              method="POST" 
+              data-netlify="true"
+              onSubmit={handleSubmit}
+              netlify-honeypot="bot-field"
             >
-              Send Message
-            </motion.button>
-          </form>
+              {/* Netlify Form Attributes */}
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <input 
+                  type="text" 
+                  name="name"
+                  placeholder="Your Name" 
+                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700/50 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 text-slate-200 placeholder-slate-500 transition-all"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                />
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="Your Email" 
+                  className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700/50 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 text-slate-200 placeholder-slate-500 transition-all"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <textarea 
+                name="message"
+                placeholder="Your Message" 
+                rows="5"
+                className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700/50 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 text-slate-200 placeholder-slate-500 transition-all"
+                value={formData.message}
+                onChange={handleInputChange}
+              ></textarea>
+              
+              {formError && (
+                <p className="text-red-400">{formError}</p>
+              )}
+              
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-3 bg-gradient-to-r from-pink-300 to-purple-600 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30"
+              >
+                Send Message
+              </motion.button>
+            </form>
+          )}
         </motion.div>
       </motion.div>
     </div>
